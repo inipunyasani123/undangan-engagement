@@ -25,7 +25,7 @@ const body = Poppins({
 const __jsonld = {"@context":"https://schema.org","@type":"WebSite","name":"Undangan Tunangan Digital — Raka & Sinta","description":"Contoh undangan lamaran digital bergaya editorial: hitung mundur, galeri, peta, RSVP, ucapan, dan musik latar.","inLanguage":"id"};
 
 export const metadata = {
-  metadataBase: new URL("https://undangan-engagement.vercel.app"),
+  metadataBase: new URL("https://undangan-engagement.pintuweb.id"),
   title: "Undangan Tunangan Digital — Raka & Sinta",
   description: "Undangan pertunangan digital yang manis dan elegan: detail acara, galeri foto, lokasi, dan konfirmasi kehadiran dalam satu tautan.",
   applicationName: "Undangan Digital",
@@ -33,11 +33,11 @@ export const metadata = {
   authors: [{ name: "Undangan Digital" }],
   creator: "Undangan Digital",
   publisher: "Undangan Digital",
-  alternates: { canonical: "https://undangan-engagement.vercel.app" },
+  alternates: { canonical: "https://undangan-engagement.pintuweb.id" },
   openGraph: {
     type: "website",
     locale: "id_ID",
-    url: "https://undangan-engagement.vercel.app",
+    url: "https://undangan-engagement.pintuweb.id",
     siteName: "Undangan Digital",
     title: "Undangan Tunangan Digital — Raka & Sinta",
     description: "Undangan pertunangan digital yang manis dan elegan: detail acara, galeri foto, lokasi, dan konfirmasi kehadiran dalam satu tautan.",

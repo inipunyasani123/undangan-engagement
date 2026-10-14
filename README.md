@@ -2,7 +2,7 @@
 
 Editorial ala majalah: sampul “Issue No. 1” dengan foto dan nama bertumpuk, hitung mundur minimalis bergaris tipis, perjalanan bernomor, dan galeri geser. Pasangan dan keluarganya sama dengan contoh Wedding, sebulan sebelum hari pernikahan.
 
-**Demo live:** https://undangan-engagement.vercel.app
+**Demo live:** https://undangan-engagement.pintuweb.id
 
 ![Tangkapan layar](public/og.jpg)
 
