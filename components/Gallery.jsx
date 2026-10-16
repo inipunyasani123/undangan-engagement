@@ -6,11 +6,13 @@ import { X } from 'lucide-react';
 import Reveal from './ui/Reveal';
 import SectionTitle from './ui/SectionTitle';
 import config from '@/lib/data';
+import { useDialog } from '@/lib/hooks';
 
 // Galeri editorial: strip scroll horizontal dengan snap + lightbox.
 export default function Gallery() {
   const { gallery } = config;
   const [active, setActive] = useState(null);
+  const tombolTutup = useDialog(active !== null, () => setActive(null));
 
   return (
     <section className="bg-blush/30 py-24">
@@ -23,12 +25,13 @@ export default function Gallery() {
           {gallery.map((src, i) => (
             <button
               key={src}
-              onClick={() => setActive(src)}
+              type="button"
+              onClick={() => setActive(i)}
               className="relative aspect-[3/4] w-60 shrink-0 snap-center overflow-hidden md:w-72"
-              aria-label={`Perbesar foto ${i + 1}`}
+              aria-label={`Perbesar foto ${String(i + 1).padStart(2, '0')}`}
             >
               <Image src={src} alt={`Galeri ${i + 1}`} fill sizes="288px" className="object-cover transition duration-500 hover:scale-105" />
-              <span className="absolute bottom-2 left-3 font-display text-sm italic text-cream mix-blend-difference">
+              <span className="absolute bottom-2 left-3 font-display text-sm italic text-cream mix-blend-difference" aria-hidden="true">
                 0{i + 1}
               </span>
             </button>
@@ -37,21 +40,21 @@ export default function Gallery() {
       </Reveal>
 
       <AnimatePresence>
-        {active && (
+        {active !== null && (
           <motion.div
             className="fixed inset-0 z-50 flex items-center justify-center bg-ink/90 p-4"
             initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
-            onClick={() => setActive(null)} role="dialog" aria-modal="true"
+            onClick={() => setActive(null)} role="dialog" aria-modal="true" aria-label={`Galeri ${active + 1} dari ${gallery.length}, diperbesar`}
           >
-            <button className="absolute right-5 top-5 text-cream/80 hover:text-cream" onClick={() => setActive(null)} aria-label="Tutup">
-              <X size={28} />
+            <button ref={tombolTutup} type="button" className="absolute right-3 top-3 flex h-11 w-11 items-center justify-center text-cream/80 hover:text-cream" onClick={() => setActive(null)} aria-label="Tutup foto">
+              <X size={28} aria-hidden="true" />
             </button>
             <motion.div
               className="relative h-[70vh] w-full max-w-2xl"
               initial={{ scale: 0.9 }} animate={{ scale: 1 }} exit={{ scale: 0.9 }}
               onClick={(e) => e.stopPropagation()}
             >
-              <Image src={active} alt="Foto galeri" fill sizes="100vw" className="object-contain" />
+              <Image src={gallery[active]} alt={`Galeri ${active + 1}`} fill sizes="(max-width: 768px) 100vw, 672px" className="object-contain" />
             </motion.div>
           </motion.div>
         )}

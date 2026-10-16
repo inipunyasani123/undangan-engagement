@@ -29,7 +29,7 @@ export default function Footer() {
 
         <button
           onClick={share}
-          className="mt-10 inline-flex items-center gap-2 border-b border-cream/40 pb-1 text-xs uppercase tracking-widest text-cream transition hover:opacity-60"
+          className="mt-10 inline-flex min-h-11 items-center gap-2 border-b border-cream/40 text-xs uppercase tracking-widest text-cream transition hover:opacity-60"
         >
           <Share2 size={14} aria-hidden="true" /> Bagikan
         </button>
@@ -40,7 +40,7 @@ export default function Footer() {
           </p>
         )}
         <p className="mt-3 text-xs text-cream/70">
-          <Link href="/kirim" className="underline underline-offset-4 hover:text-cream">Kirim undangan ke tamu</Link>
+          <Link href="/kirim" className="inline-block py-2 underline underline-offset-4 hover:text-cream">Kirim undangan ke tamu</Link>
         </p>
       </Reveal>
     </footer>

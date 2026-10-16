@@ -2,16 +2,17 @@
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 import config from '@/lib/data';
+import { bagianWIB } from '@/lib/utils';
 
 // Hero editorial: split-screen — foto di kiri, teks di kanan (stack di mobile).
 export default function Hero() {
   const { couple, mainDate } = config;
-  const d = new Date(mainDate);
-  const day = d.toLocaleDateString('id-ID', { weekday: 'long' });
-  const dateNum = `${String(d.getDate()).padStart(2, '0')} . ${String(d.getMonth() + 1).padStart(2, '0')} . ${d.getFullYear()}`;
+  const d = bagianWIB(mainDate);
+  const day = d.hari;
+  const dateNum = `${String(d.tgl).padStart(2, '0')} . ${String(d.bulan).padStart(2, '0')} . ${d.tahun}`;
 
   return (
-    <section className="grid min-h-screen grid-cols-1 md:grid-cols-2">
+    <section className="grid grid-cols-1 md:min-h-svh md:grid-cols-2">
       {/* Foto */}
       <div className="relative h-72 md:h-auto">
         <Image src={config.heroImage} alt="" fill priority sizes="(max-width:768px) 100vw, 50vw" className="object-cover" />

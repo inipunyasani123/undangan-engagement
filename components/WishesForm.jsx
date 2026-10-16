@@ -17,7 +17,7 @@ export default function WishesForm() {
   const submit = (e) => {
     e.preventDefault();
     if (!form.name.trim() || !form.message.trim()) return;
-    setWishes((prev) => [{ id: Date.now(), ...form }, ...prev]);
+    setWishes((prev) => [{ id: Date.now(), name: form.name.trim(), message: form.message.trim() }, ...prev]);
     setForm({ name: '', message: '' });
   };
 
@@ -28,35 +28,38 @@ export default function WishesForm() {
 
         <Reveal className="mt-12">
           <form onSubmit={submit} className="space-y-5">
-            <label htmlFor="ucapan-nama" className="sr-only">Nama</label>
+            <label htmlFor="ucapan-nama" className="block text-xs uppercase tracking-[0.2em] text-muted">Nama</label>
             <input
               id="ucapan-nama"
               value={form.name}
               onChange={(e) => setForm({ ...form, name: e.target.value })}
               placeholder="Nama Anda"
-              className="w-full border-b border-rose-deep/30 bg-transparent py-2.5 text-sm outline-none focus:border-rose-deep"
+              autoComplete="name"
+              maxLength={60}
+              className="mt-1 w-full border-b border-rose-deep/30 bg-transparent py-2.5 text-sm outline-none focus:border-rose-deep"
               required
             />
-            <label htmlFor="ucapan-pesan" className="sr-only">Ucapan dan doa</label>
+            <label htmlFor="ucapan-pesan" className="block text-xs uppercase tracking-[0.2em] text-muted">Ucapan &amp; doa</label>
             <textarea
               id="ucapan-pesan"
               value={form.message}
               onChange={(e) => setForm({ ...form, message: e.target.value })}
-              placeholder="Tulis ucapan & doa..."
+              placeholder="Tulis ucapan & doa…"
               rows={3}
-              className="w-full resize-none border-b border-rose-deep/30 bg-transparent py-2.5 text-sm outline-none focus:border-rose-deep"
+              maxLength={500}
+              className="mt-1 w-full resize-none border-b border-rose-deep/30 bg-transparent py-2.5 text-sm outline-none focus:border-rose-deep"
               required
             />
             <button
               type="submit"
-              className="inline-flex items-center gap-2 border-b border-rose-deep pb-1 text-xs uppercase tracking-widest text-rose-deep transition hover:opacity-60"
+              className="inline-flex min-h-11 items-center gap-2 border-b border-rose-deep text-xs uppercase tracking-widest text-rose-deep transition hover:opacity-60"
             >
               <Send size={14} aria-hidden="true" /> Kirim Ucapan
             </button>
           </form>
         </Reveal>
 
-        <div className="mt-10 max-h-80 space-y-px overflow-y-auto border-t border-rose-deep/15">
+        <div className="mt-10 space-y-px border-t border-rose-deep/15" aria-live="polite">
           {wishes.map((w) => (
             <div key={w.id} className="border-b border-rose-deep/15 py-4">
               <p className="font-display text-lg text-ink">{w.name}</p>

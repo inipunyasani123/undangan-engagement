@@ -1,5 +1,5 @@
 'use client';
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Check } from 'lucide-react';
 import Reveal from './ui/Reveal';
 import SectionTitle from './ui/SectionTitle';
@@ -13,6 +13,12 @@ const PESAN_URL =
 export default function RSVPForm({ onSubmit }) {
   const [form, setForm] = useState({ name: '', attendance: 'hadir', guests: 1 });
   const [done, setDone] = useState(false);
+  const pesanSukses = useRef(null);
+
+  // Form hilang setelah dikirim; pindahkan fokus ke pesan sukses supaya tidak jatuh ke <body>.
+  useEffect(() => {
+    if (done) pesanSukses.current?.focus();
+  }, [done]);
 
   const handle = (e) => setForm({ ...form, [e.target.name]: e.target.value });
 
@@ -32,11 +38,11 @@ export default function RSVPForm({ onSubmit }) {
         <SectionTitle num="vi" kicker="Kehadiran" title="Konfirmasi RSVP" align="left" />
 
         {done ? (
-          <Reveal className="mt-12 border border-rose-deep/20 p-10 text-center">
+          <div className="mt-12 border border-rose-deep/20 p-10 text-center" role="status">
             <div className="mx-auto flex h-12 w-12 items-center justify-center border border-rose-deep text-rose-deep">
-              <Check size={22} />
+              <Check size={22} aria-hidden="true" />
             </div>
-            <p className="mt-5 font-display text-2xl text-ink">Terima kasih, {form.name}.</p>
+            <p ref={pesanSukses} tabIndex={-1} className="mt-5 font-display text-2xl text-ink">Terima kasih, {form.name.trim()}.</p>
             <p className="mt-2 text-sm text-muted">
               Ini undangan contoh, jadi konfirmasi Anda tidak dikirim ke mana pun.
             </p>
@@ -48,13 +54,13 @@ export default function RSVPForm({ onSubmit }) {
             >
               Pesan undangan seperti ini
             </a>
-          </Reveal>
+          </div>
         ) : (
           <Reveal className="mt-12">
             <form onSubmit={submit} className="space-y-7">
               <label className="block">
                 <span className={label}>Nama</span>
-                <input name="name" value={form.name} onChange={handle} placeholder="Nama Anda" className={field} required />
+                <input name="name" value={form.name} onChange={handle} placeholder="Nama Anda" autoComplete="name" maxLength={60} className={field} required />
               </label>
               <label className="block">
                 <span className={label}>Konfirmasi</span>

@@ -11,11 +11,14 @@ export default function MapEmbed() {
       <div className="mx-auto max-w-3xl">
         <SectionTitle num="v" kicker="Location" title="Lokasi Acara" align="left" />
         <Reveal className="mt-12">
-          <div className="overflow-hidden border border-rose-deep/20">
+          <div className="relative overflow-hidden border border-rose-deep/20 bg-blush/50">
+            <p className="absolute inset-0 flex items-center justify-center gap-2 text-xs uppercase tracking-[0.2em] text-muted" aria-hidden="true">
+              <MapPin size={14} /> Memuat peta…
+            </p>
             <iframe
               src={location.mapEmbed}
               title="Peta lokasi acara"
-              className="h-80 w-full border-0 grayscale-[0.2]"
+              className="relative h-80 w-full border-0 grayscale-[0.2]"
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
               allowFullScreen
@@ -30,7 +33,7 @@ export default function MapEmbed() {
               href={location.mapLink}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 border-b border-rose-deep pb-1 text-xs uppercase tracking-widest text-rose-deep transition hover:opacity-60"
+              className="inline-flex min-h-11 items-center gap-2 border-b border-rose-deep text-xs uppercase tracking-widest text-rose-deep transition hover:opacity-60"
             >
               <MapPin size={14} aria-hidden="true" /> Buka di Google Maps
             </a>

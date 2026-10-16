@@ -7,9 +7,9 @@ import config from '@/lib/data';
 function Row({ person, index, reverse }) {
   return (
     <Reveal className={`grid grid-cols-1 items-center gap-8 md:grid-cols-2 ${reverse ? 'md:[direction:rtl]' : ''}`}>
-      <div className="relative aspect-[3/4] w-full overflow-hidden md:[direction:ltr]">
+      <div className="relative aspect-[4/5] w-full overflow-hidden md:aspect-[3/4] md:[direction:ltr]">
         <Image src={person.photo} alt={person.fullName} fill sizes="(max-width:768px) 100vw, 50vw" className="object-cover" />
-        <span className="absolute left-4 top-4 font-display text-5xl italic text-cream mix-blend-difference">
+        <span className="absolute left-4 top-4 font-display text-5xl italic text-cream mix-blend-difference" aria-hidden="true">
           0{index}
         </span>
       </div>
