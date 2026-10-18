@@ -22,15 +22,15 @@ export default function Gallery() {
 
       <Reveal className="mt-12">
         <div className="flex snap-x snap-mandatory gap-4 overflow-x-auto px-6 pb-4 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
-          {gallery.map((src, i) => (
+          {gallery.map((foto, i) => (
             <button
-              key={src}
+              key={foto.src}
               type="button"
               onClick={() => setActive(i)}
               className="relative aspect-[3/4] w-60 shrink-0 snap-center overflow-hidden md:w-72"
-              aria-label={`Perbesar foto ${String(i + 1).padStart(2, '0')}`}
+              aria-label={`Perbesar foto ${String(i + 1).padStart(2, '0')}: ${foto.alt}`}
             >
-              <Image src={src} alt={`Galeri ${i + 1}`} fill sizes="288px" className="object-cover transition duration-500 hover:scale-105" />
+              <Image src={foto.src} alt={foto.alt} fill sizes="288px" className="object-cover transition duration-500 hover:scale-105" />
               <span className="absolute bottom-2 left-3 font-display text-sm italic text-cream mix-blend-difference" aria-hidden="true">
                 0{i + 1}
               </span>
@@ -54,7 +54,7 @@ export default function Gallery() {
               initial={{ scale: 0.9 }} animate={{ scale: 1 }} exit={{ scale: 0.9 }}
               onClick={(e) => e.stopPropagation()}
             >
-              <Image src={gallery[active]} alt={`Galeri ${active + 1}`} fill sizes="(max-width: 768px) 100vw, 672px" className="object-contain" />
+              <Image src={gallery[active].src} alt={gallery[active].alt} fill sizes="(max-width: 768px) 100vw, 672px" className="object-contain" />
             </motion.div>
           </motion.div>
         )}

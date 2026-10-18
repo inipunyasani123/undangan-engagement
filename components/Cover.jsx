@@ -54,7 +54,7 @@ export default function Cover({ keluar, onOpen, onSelesai, musik, onMusik }) {
           <div className="masuk-skala relative ml-auto w-[64%] max-w-[260px] sm:ml-0 sm:w-[44%] sm:max-w-none sm:border-l sm:border-rose-deep/20">
             <span className="absolute -left-2.5 -top-2.5 h-full w-full border border-rose-deep/30 sm:hidden" aria-hidden="true" />
             <div className="relative aspect-[3/4] overflow-hidden sm:absolute sm:inset-0 sm:aspect-auto">
-              <Image src={config.heroImage} alt="" fill priority sizes="(max-width: 640px) 64vw, 44vw" className="object-cover" />
+              <Image src={config.heroImage} alt="" fill priority fetchPriority="high" sizes="(max-width: 640px) 64vw, 44vw" className="object-cover" />
             </div>
           </div>
         </div>

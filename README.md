@@ -6,7 +6,7 @@ Editorial ala majalah: sampul “Issue No. 1” dengan foto dan nama bertumpuk, 
 
 ![Tangkapan layar](public/og.jpg)
 
-> Contoh dengan data fiktif: nama, tempat, dan nomor rekening tidak sungguhan. Formulir hanya demo dan mengatakannya terus terang. Foto adalah placeholder berlabel yang siap diganti.
+> Contoh dengan data fiktif: nama, tempat, dan nomor rekening tidak sungguhan. Formulir hanya demo dan mengatakannya terus terang. Gambar adalah ilustrasi fesyen buatan sendiri yang siap diganti foto asli.
 
 ## Fitur
 
@@ -25,12 +25,12 @@ Seluruh isi ada di satu file: `lib/data.js` (nama, tanggal, acara, galeri, musik
 
 - **Tanggal:** ubah teks tanggal *dan* nilai ISO (`mainDate`, `start`, `end`) — hitung mundur dan tombol kalender memakai nilai ISO.
 - **Peta:** contoh menunjuk area kota; ganti `q=` di `location.mapEmbed` dan `mapLink` dengan nama tempat atau koordinat.
-- **Foto:** timpa berkas di `public/images/` dengan nama yang sama (potret 3:4).
+- **Foto:** timpa berkas di `public/images/` dengan nama yang sama (potret 3:4), lalu perbarui `alt` di `lib/data.js`.
 - **Musik:** timpa `public/music/latar.mp3`, lalu ubah `music.title` dan `music.credit`. Pastikan Anda berhak memakai lagunya.
 
 ## Gambar & kredit
 
-- `public/images/*.webp` — placeholder berlabel buatan sendiri (bukan foto stok), digambar ulang dari SVG agar tidak bergantung pada layanan luar.
+- `public/images/*.webp` — ilustrasi fesyen editorial buatan sendiri (garis tinta + sapuan cat air sage), digambar dari SVG; tokohnya fiktif. Lihat `public/images/SUMBER.md`.
 - `public/music/latar.mp3` — *Gymnopédie No. 1 — Erik Satie*, rekaman Teknopazzo, CC0 — [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Gymnopedie_No._1..ogg). Diperkecil ke MP3 mono 80 kbps.
 
 ## Teknologi
