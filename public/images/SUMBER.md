@@ -13,3 +13,6 @@
 Orang/tokoh (foto-berdua, calon-pria, calon-wanita, galeri-3, galeri-6) berupa ilustrasi buatan sendiri tanpa wajah orang sungguhan. Foto dipangkas ke rasio 3:4 dan dikompres ke WebP.
 
 30 Okt 2026: wajah pada semua ilustrasi tokoh di proyek ini dihapus (wajah polos tanpa mata, hidung, mulut) agar seragam; pose, warna, dan komposisi tetap. Varian WebP dibuat ulang lewat scripts/static-images.mjs.
+
+## 30 Okt 2026 (malam): wajah ilustrasi dirapikan
+Ilustrasi tokoh yang sebelumnya ditambal kasar diganti hasil penyuntingan **gambar AI (Gemini, langganan pemilik)** dari ilustrasi asli proyek ini: hanya mata, alis, hidung, mulut, dan rona pipi yang dihapus; pose, pakaian, warna, dan latar tetap. Berkas: calon-pria, calon-wanita, foto-berdua, galeri-3 (+ og.jpg ditangkap ulang).
