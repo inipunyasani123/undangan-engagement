@@ -11,3 +11,5 @@
 | `galeri-5.webp` | Dua cangkir kopi biru muda di meja kayu | Yam B Chhetri, WordPress Photo Directory, https://wordpress.org/photos/photo/211692fcab/ | CC0 |
 
 Orang/tokoh (foto-berdua, calon-pria, calon-wanita, galeri-3, galeri-6) berupa ilustrasi buatan sendiri tanpa wajah orang sungguhan. Foto dipangkas ke rasio 3:4 dan dikompres ke WebP.
+
+30 Okt 2026: wajah pada semua ilustrasi tokoh di proyek ini dihapus (wajah polos tanpa mata, hidung, mulut) agar seragam; pose, warna, dan komposisi tetap. Varian WebP dibuat ulang lewat scripts/static-images.mjs.
